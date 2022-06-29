@@ -42,29 +42,29 @@ if (isset($_POST["entrada"])) {
         $estado_atual = $novo_estado;
 
         if (($estado_atual == 'q') && ($entrada == 'a') && (end($topo_pilha) == 'Z')) {
-            $novo_estado = 'p';
+            $novo_estado = 'q';
             $nova_pilha = ['B', 'B'];
             printTransicao($estado_atual, $entrada, $topo_pilha, $novo_estado, $nova_pilha);
      
+        } else if (($estado_atual == 'q') && ($entrada == 'a') && (end($topo_pilha) == 'B')) {
+            $novo_estado = 'q';
+            $nova_pilha = ['B', 'B'];
+            printTransicao($estado_atual, $entrada, $topo_pilha, $novo_estado, $nova_pilha);
+     
+        } else if (($estado_atual == 'q') && ($entrada == 'b') && (end($topo_pilha) == 'B')) {
+            $novo_estado = 'p';
+            printTransicao($estado_atual, $entrada, $topo_pilha, $novo_estado, $nova_pilha);
+            array_pop($topo_pilha);
+
         } else if (($estado_atual == 'p') && ($entrada == 'b') && (end($topo_pilha) == 'B')) {
             $novo_estado = 'p';
             printTransicao($estado_atual, $entrada, $topo_pilha, $novo_estado, $nova_pilha);
-            array_pop($topo_pilha); //pode dar erro aqui, possivel fazer validação, se passou aqui, nao vai receber  o nova pilha la em cima
-     
-        } else if (($estado_atual == 'p') && ($entrada == 'a') && (end($topo_pilha) == 'Z')) {
-            $novo_estado = 'p';
-            $nova_pilha = ['B', 'B'];
-            printTransicao($estado_atual, $entrada, $topo_pilha, $novo_estado, $nova_pilha);
+            array_pop($topo_pilha);
        
         } else if (($estado_atual == 'p') && ($entrada == '') && (end($topo_pilha) == 'Z')) {
             $novo_estado = 'p';
             printTransicao($estado_atual, $entrada, $topo_pilha, $novo_estado, $nova_pilha);
             array_pop($topo_pilha);
-       
-        } else if (($estado_atual == 'p') && ($entrada == 'a') && (end($topo_pilha) == 'B')) {
-            $novo_estado = 'p';
-            $nova_pilha = ['B', 'B'];
-            printTransicao($estado_atual, $entrada, $topo_pilha, $novo_estado, $nova_pilha);
         
         } else {
             break; //pulo do gato, MIAU
@@ -126,8 +126,8 @@ echo "~Roni Deringer";
  *
  * Delta:
     δ = (q, a, Z) = (p, BBZ)
+    δ = (q, a, B) = (q, BBB)
+    δ = (q, b, B) = (p, &)
     δ = (p, b, B) = (p, &)
-    δ = (p, a, Z) = (p, BBZ)
     δ = (p, &, Z) = (p, &)
-    δ = (p, a, B) = (p, BBB)
  */
