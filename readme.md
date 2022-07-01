@@ -19,6 +19,7 @@
 
 [CODIGO SEMELHANTE](https://github.com/prompty001/automato-com-pilha/blob/master/a-pilha.py)
 
+[OUTRO CODIGO](https://gist.github.com/Icaro-Lima/0c43a9385462418579e6a56eec850bde)
 ___
 
 ## FUNÇÕES USADAS:
