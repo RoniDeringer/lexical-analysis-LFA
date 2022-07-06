@@ -29,13 +29,11 @@ if (isset($_POST["entrada"])) {
     $nova_pilha;
     $entrada_post;
 
-
     $entradas = $conversao_p_array;
     $novo_estado = 'q';
     $topo_pilha = ['Z'];
 
     echo "<pre>";
-
 
     foreach ($entradas as $entrada) {
 
